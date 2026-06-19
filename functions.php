@@ -43,9 +43,9 @@ function dionnie_enqueue_from_manifest( $entries ) {
     $hot_file = get_stylesheet_directory() . '/public/hot';
     $is_dev   = file_exists( $hot_file );
 
-	$reset_handle = 'dionnie-reset';
-    $reset_url    = get_stylesheet_directory_uri() . '/src/css/reset.css'; 
-    wp_enqueue_style( $reset_handle, $reset_url );
+
+    wp_enqueue_style(  'dionnie-reset', get_stylesheet_directory_uri() . '/src/css/reset.css' );
+        wp_enqueue_style(  'dionnie-theme', get_stylesheet_directory_uri() . '/src/css/theme.css' );
 
     // --- DEVELOPMENT MODE (VITE HMR) ---
     if ( $is_dev ) {
@@ -163,3 +163,5 @@ function custom_mini_cart() {
     echo '</ul>';
 }
 add_shortcode( 'custom_techno_mini_cart', 'custom_mini_cart' );
+
+

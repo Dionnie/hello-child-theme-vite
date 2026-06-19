@@ -77,7 +77,7 @@ pre {
 }
 a {
   background-color: transparent;
-  color: #c36;
+  color: #d26137;
   text-decoration: none;
 }
 a:active,
@@ -262,9 +262,9 @@ button {
 [type="submit"],
 button {
   background-color: transparent;
-  border: 1px solid #c36;
+  border: 1px solid #d26137;
   border-radius: 3px;
-  color: #c36;
+  color: #d26137;
   display: inline-block;
   font-size: 1rem;
   font-weight: 400;
@@ -287,7 +287,7 @@ button:focus:not(:focus-visible) {
 [type="submit"]:hover,
 button:focus,
 button:hover {
-  background-color: #c36;
+  background-color: #d26137;
   color: #fff;
   text-decoration: none;
 }
