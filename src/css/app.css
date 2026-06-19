@@ -82,14 +82,15 @@ body.woocommerce {
   }
 }
 
+.woocommerce .products ul::after,
 .woocommerce .products ul::before,
-.woocommerce ul.products::after {
+.woocommerce ul.products::after,
+.woocommerce ul.products::before {
   position: absolute;
 }
 
 .woocommerce .products ul,
 .woocommerce ul.products {
-  all: unset;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
