@@ -1,0 +1,19 @@
+.woocommerce table.shop_table {
+  border: 1px solid lightgrey;
+  border-collapse: collapse;
+}
+
+.woocommerce table.shop_table td {
+  border-top: 1px solid lightgray;
+}
+
+.woocommerce table.shop_table thead {
+  border-block-end: 2px solid;
+  background: whitesmoke;
+}
+
+.woocommerce table.shop_table tr:has(.actions),
+.woocommerce table.shop_table tfoot {
+  border-block: 2px solid;
+  background: whitesmoke;
+}

@@ -10,12 +10,7 @@ export default defineConfig({
   },
   plugins: [
     laravel({
-      input: [
-        "src/js/app.js",
-        "src/js/editor.js",
-        "src/css/app.css",
-        "src/css/editor.css",
-      ],
+      input: ["src/js/theme.js", "src/css/theme.css"],
       refresh: [".//*.php"],
     }),
     react(),

@@ -1,0 +1,24 @@
+@import "./reset.css";
+@import "./table.css";
+@import "./product-grid.css";
+@import "./single-product.css";
+@import "./cart.css";
+@import "./checkout.css";
+
+body.archive .content-area,
+body.woocommerce-shop .content-area,
+body.single-product .content-area {
+  padding-inline-start: max(2rem, calc((100% - 1140px) / 2));
+  padding-inline-end: max(2rem, calc((100% - 1140px) / 2));
+
+  @media (max-width: 767px) {
+    & {
+      padding-inline-start: max(1rem, calc((100% - 1140px) / 2));
+      padding-inline-end: max(1rem, calc((100% - 1140px) / 2));
+    }
+  }
+}
+
+.woocommerce .star-rating {
+  color: #fbbc04 !important;
+}

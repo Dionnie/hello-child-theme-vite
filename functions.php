@@ -44,8 +44,8 @@ function dionnie_enqueue_from_manifest( $entries ) {
     $is_dev   = file_exists( $hot_file );
 
 
-    wp_enqueue_style(  'dionnie-reset', get_stylesheet_directory_uri() . '/src/css/reset.css' );
-        wp_enqueue_style(  'dionnie-theme', get_stylesheet_directory_uri() . '/src/css/theme.css' );
+   //wp_enqueue_style(  'dionnie-reset', get_stylesheet_directory_uri() . '/src/css/reset.css' );
+   // wp_enqueue_style(  'dionnie-theme', get_stylesheet_directory_uri() . '/src/css/theme.css' );
 
     // --- DEVELOPMENT MODE (VITE HMR) ---
     if ( $is_dev ) {
@@ -123,11 +123,13 @@ function dionnie_enqueue_from_manifest( $entries ) {
 /**
  * Enqueue frontend scripts and styles.
  */
+
+
 function dionnie_enqueue_frontend_assets() {
     dionnie_enqueue_from_manifest( array( 
-        'src/js/app.js', 
-        'src/css/app.css',
-
+        'src/js/theme.js', 
+        'src/css/theme.css',
+    
     ) );
 }
 add_action( 'wp_enqueue_scripts', 'dionnie_enqueue_frontend_assets' );
@@ -135,13 +137,16 @@ add_action( 'wp_enqueue_scripts', 'dionnie_enqueue_frontend_assets' );
 /**
  * Enqueue block editor scripts and styles.
  */
-function dionnie_enqueue_editor_assets() {
+
+/*
+ function dionnie_enqueue_editor_assets() {
     dionnie_enqueue_from_manifest( array( 
         'src/js/editor.js', 
         'src/css/editor.css' 
     ) );
 }
 add_action( 'enqueue_block_editor_assets', 'dionnie_enqueue_editor_assets' );
+*/
 
 
 // Add Shortcode
@@ -165,3 +170,28 @@ function custom_mini_cart() {
 add_shortcode( 'custom_techno_mini_cart', 'custom_mini_cart' );
 
 
+
+function mytheme_add_woocommerce_support() {
+    add_theme_support( 'woocommerce' );
+}
+
+add_action( 'after_setup_theme', 'mytheme_add_woocommerce_support' );
+
+
+/**
+ * Disable WordPress Core and WooCommerce Block Library CSS
+ */
+function custom_remove_block_library_css() {
+    // Remove WooCommerce Block Styles
+    wp_dequeue_style( 'wc-blocks-style' );
+    wp_dequeue_style( 'wc-blocks-vendors-style' );
+    
+    // Remove WordPress Core Block Styles
+    wp_dequeue_style( 'wp-block-library' );
+    wp_dequeue_style( 'wp-block-library-theme' );
+    
+    // Optional: Remove Inline Global Styles / Theme JSON CSS if not using block themes
+    wp_dequeue_style( 'global-styles' );
+    wp_dequeue_style( 'classic-theme-styles' );
+}
+add_action( 'wp_enqueue_scripts', 'custom_remove_block_library_css', 999 );

@@ -1,0 +1,35 @@
+.woocommerce-form-coupon-toggle .woocommerce-info {
+  margin-bottom: 1rem;
+}
+
+.woocommerce .checkout_coupon.woocommerce-form-coupon {
+  display: flex;
+  gap: 12px;
+  align-items: start;
+  flex-wrap: wrap;
+  margin-top: 0;
+  margin-bottom: 1rem;
+
+  .form-row {
+    width: revert;
+    float: revert;
+    margin: 0;
+    padding: 0;
+  }
+
+  button {
+    height: 100%;
+    padding: 12px;
+  }
+}
+
+.woocommerce #payment #place_order,
+.woocommerce-page #payment #place_order {
+  transition: background-color 0.3s ease;
+  background-color: var(--primary);
+  color: #fff;
+
+  &:hover {
+    background-color: #35482b;
+  }
+}

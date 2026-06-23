@@ -1,0 +1,11 @@
+#add_payment_method .wc-proceed-to-checkout a.checkout-button,
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button,
+.woocommerce-checkout .wc-proceed-to-checkout a.checkout-button {
+  transition: background-color 0.3s ease;
+  background-color: var(--primary);
+  color: #fff;
+
+  &:hover {
+    background-color: #35482b;
+  }
+}

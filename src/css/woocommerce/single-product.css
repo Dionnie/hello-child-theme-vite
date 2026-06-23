@@ -1,0 +1,37 @@
+.woocommerce div.product div.images img {
+  border-radius: 1em;
+}
+
+#main #review_form #respond p {
+  margin-top: 0.5rem;
+}
+
+.woocommerce .quantity .qty {
+  padding: 5px 4px;
+  min-width: 70px;
+}
+
+.woocommerce div.product form.cart .button {
+  transition: background-color 0.3s ease;
+  background-color: var(--primary);
+  color: #fff;
+
+  &:hover {
+    background-color: #35482b;
+  }
+}
+
+.woocommerce:where(body:not(.woocommerce-uses-block-theme)) div.product p.price,
+.woocommerce:where(body:not(.woocommerce-uses-block-theme))
+  div.product
+  span.price {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: var(--head-5);
+}
+
+.woocommerce:where(body:not(.woocommerce-uses-block-theme)) div.product .stock {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 1rem !important;
+}
