@@ -1,6 +1,6 @@
 {
   "src/css/theme.css": {
-    "file": "assets/theme-DEvTJUv7.css",
+    "file": "assets/theme-BLeQo9rf.css",
     "src": "src/css/theme.css",
     "isEntry": true,
     "name": "theme",
@@ -9,7 +9,7 @@
     ]
   },
   "src/js/theme.js": {
-    "file": "assets/theme-Cv12xYOO.js",
+    "file": "assets/theme-22pn6zDN.js",
     "name": "theme",
     "src": "src/js/theme.js",
     "isEntry": true

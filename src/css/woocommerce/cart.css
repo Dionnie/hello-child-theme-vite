@@ -15,8 +15,7 @@ body.woocommerce-cart .elementor-widget-container .woocommerce {
 
     a {
       color: #171717;
-      font-weight: 600;
-      font-size: 14px;
+      font-weight: 500;
     }
 
     input {
@@ -25,7 +24,12 @@ body.woocommerce-cart .elementor-widget-container .woocommerce {
     }
   }
   .cart-collaterals {
-    padding: 2rem;
+    h2 {
+      margin-inline: 12px;
+      margin-block: 1rem;
+    }
+
+    padding: 1rem;
     border: 1px solid #e7e7e7;
     border-radius: 1rem;
 

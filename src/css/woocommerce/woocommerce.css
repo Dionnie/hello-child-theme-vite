@@ -22,7 +22,7 @@ body.single-product .content-area {
 }
 
 .woocommerce .star-rating {
-  color: #fbbc04;
+  color: var(--primary);
 }
 
 .woocommerce-message {

@@ -195,3 +195,163 @@ function custom_remove_block_library_css() {
     wp_dequeue_style( 'classic-theme-styles' );
 }
 add_action( 'wp_enqueue_scripts', 'custom_remove_block_library_css', 999 );
+
+
+function disable_wp_emojis() {
+    remove_action( 'admin_print_styles', 'print_emoji_styles' );
+    remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+    remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+    remove_action( 'wp_print_styles', 'print_emoji_styles' );
+    remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+    remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+    remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+    
+    // Remove TinyMCE emojis
+    add_filter( 'tiny_mce_plugins', 'disable_emojis_tinymce' );
+    
+    // Remove DNS prefetch
+    add_filter( 'emoji_svg_url', '__return_false' );
+}
+add_action( 'init', 'disable_wp_emojis' );
+
+function disable_emojis_tinymce( $plugins ) {
+    if ( is_array( $plugins ) ) {
+        return array_diff( $plugins, array( 'wpemoji' ) );
+    } else {
+        return array();
+    }
+}
+
+
+
+/**
+ * Generate meta descriptions without an SEO plugin.
+ */
+function my_custom_meta_description() {
+
+	// Prevent duplicates if another plugin/theme already outputs one.
+	if ( is_admin() ) {
+		return;
+	}
+
+	$description = '';
+
+	// Homepage.
+	if ( is_front_page() || is_home() ) {
+
+		$description = get_bloginfo( 'description' );
+
+	// WooCommerce Product.
+	} elseif ( function_exists( 'is_product' ) && is_product() ) {
+
+		$product = wc_get_product( get_queried_object_id() );
+
+		if ( $product && is_a( $product, 'WC_Product' ) ) {
+
+			$description = $product->get_short_description();
+
+			if ( empty( $description ) ) {
+				$description = $product->get_description();
+			}
+
+			$description = $product->get_name() . ' - ' . $description;
+		}
+
+	// Posts & Pages.
+	} elseif ( is_singular() ) {
+
+		$post = get_post();
+
+		if ( $post ) {
+
+			if ( ! empty( $post->post_excerpt ) ) {
+				$description = $post->post_excerpt;
+			} else {
+				$description = $post->post_content;
+			}
+		}
+
+	// WooCommerce Product Category.
+	} elseif ( function_exists( 'is_product_category' ) && is_product_category() ) {
+
+		$term = get_queried_object();
+
+		if ( ! empty( $term->description ) ) {
+			$description = $term->description;
+		} else {
+			$description = sprintf(
+				'Browse our %s products.',
+				single_term_title( '', false )
+			);
+		}
+
+	// WooCommerce Product Tag.
+	} elseif ( function_exists( 'is_product_tag' ) && is_product_tag() ) {
+
+		$term = get_queried_object();
+
+		if ( ! empty( $term->description ) ) {
+			$description = $term->description;
+		} else {
+			$description = sprintf(
+				'Browse products tagged %s.',
+				single_term_title( '', false )
+			);
+		}
+
+	// Blog Categories.
+	} elseif ( is_category() ) {
+
+		$description = category_description();
+
+		if ( empty( $description ) ) {
+			$description = sprintf(
+				'Articles filed under %s.',
+				single_cat_title( '', false )
+			);
+		}
+
+	// Blog Tags.
+	} elseif ( is_tag() ) {
+
+		$description = tag_description();
+
+		if ( empty( $description ) ) {
+			$description = sprintf(
+				'Articles tagged %s.',
+				single_tag_title( '', false )
+			);
+		}
+
+	// Generic Archives.
+	} elseif ( is_archive() ) {
+
+		$description = get_the_archive_description();
+
+		if ( empty( $description ) ) {
+			$description = get_bloginfo( 'description' );
+		}
+	}
+
+	// Final fallback.
+	if ( empty( $description ) ) {
+		$description = get_bloginfo( 'description' );
+	}
+
+	// Cleanup.
+	$description = wp_strip_all_tags( $description );
+	$description = html_entity_decode( $description, ENT_QUOTES, 'UTF-8' );
+	$description = preg_replace( '/\s+/', ' ', $description );
+	$description = trim( $description );
+
+	// Limit to ~160 characters.
+	if ( mb_strlen( $description ) > 160 ) {
+		$description = mb_substr( $description, 0, 157 ) . '...';
+	}
+
+	printf(
+		'<meta name="description" content="%s" />' . "\n",
+		esc_attr( $description )
+	);
+}
+add_action( 'wp_head', 'my_custom_meta_description', 5 );
