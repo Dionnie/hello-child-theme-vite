@@ -1,0 +1,26 @@
+:root {
+  --woocommerce: #506c41;
+
+  --wc-green: #506c41;
+  --wc-red: #a00;
+  --wc-orange: #c99700;
+  --wc-blue: #4a7a5a;
+
+  --wc-primary: #506c41;
+  --wc-primary-text: #ffffff;
+
+  --wc-secondary: #edf1ea;
+  --wc-secondary-text: #44513c;
+
+  --wc-highlight: #6b8f57;
+  --wc-highligh-text: #ffffff;
+
+  --wc-content-bg: #ffffff;
+  --wc-subtext: #6b7280;
+
+  --wc-form-border-color: #cfd8c9;
+  --wc-form-border-radius: 8px;
+  --wc-form-border-width: 1px;
+
+  --wc-card-border-radius: 12px;
+}

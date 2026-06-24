@@ -1,18 +1,3 @@
-body.woocommerce main,
-body.woocommerce-page main {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-size: revert;
-    font-family: var(--font-heading);
-    line-height: 140%;
-    font-weight: 800;
-  }
-}
-
 #add_payment_method .wc-proceed-to-checkout a.checkout-button,
 .woocommerce-cart .wc-proceed-to-checkout a.checkout-button,
 .woocommerce-checkout .wc-proceed-to-checkout a.checkout-button {

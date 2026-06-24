@@ -1,6 +1,8 @@
 @import "./reset.css";
-@import "./table.css";
+@import "./globals.css";
+@import "./buttons.css";
 @import "./product-grid.css";
+@import "./product-grid-item.css";
 @import "./single-product.css";
 @import "./cart.css";
 @import "./checkout.css";
@@ -20,5 +22,36 @@ body.single-product .content-area {
 }
 
 .woocommerce .star-rating {
-  color: #fbbc04 !important;
+  color: #fbbc04;
+}
+
+.woocommerce-message {
+  border-top-color: var(--primary);
+}
+
+.woocommerce-message::before {
+  color: var(--primary);
+}
+
+#add_payment_method table.cart img,
+.woocommerce-cart table.cart img,
+.woocommerce-checkout table.cart img {
+  width: 80px;
+  border-radius: 4px;
+}
+
+.woocommerce {
+  h1 {
+    font-size: var(--step-3);
+  }
+
+  h2 {
+    font-size: var(--step-2);
+  }
+
+  h3 {
+    font-size: var(--step-2);
+    line-height: 1;
+    margin-block: 0.6em;
+  }
 }

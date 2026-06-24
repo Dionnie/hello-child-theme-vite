@@ -35,3 +35,9 @@
   font-weight: 600;
   font-size: 1rem !important;
 }
+
+.woocommerce .quantity .qty {
+  padding: 0.5rem 0.75rem;
+  padding-right: 2px;
+  min-width: 70px;
+}
