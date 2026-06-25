@@ -1,6 +1,6 @@
 {
   "src/css/theme.css": {
-    "file": "assets/theme-BLeQo9rf.css",
+    "file": "assets/theme-B6jRAlDh.css",
     "src": "src/css/theme.css",
     "isEntry": true,
     "name": "theme",
@@ -8,8 +8,32 @@
       "theme.css"
     ]
   },
+  "src/fonts/fraunces-v38-latin-900.woff2": {
+    "file": "assets/fraunces-v38-latin-900-DmBL83SS.woff2",
+    "src": "src/fonts/fraunces-v38-latin-900.woff2"
+  },
+  "src/fonts/fraunces-v38-latin-regular.woff2": {
+    "file": "assets/fraunces-v38-latin-regular-6IfK1voy.woff2",
+    "src": "src/fonts/fraunces-v38-latin-regular.woff2"
+  },
+  "src/fonts/manrope-v20-latin-500.woff2": {
+    "file": "assets/manrope-v20-latin-500-BYYD-dBL.woff2",
+    "src": "src/fonts/manrope-v20-latin-500.woff2"
+  },
+  "src/fonts/manrope-v20-latin-600.woff2": {
+    "file": "assets/manrope-v20-latin-600-4f0koTD-.woff2",
+    "src": "src/fonts/manrope-v20-latin-600.woff2"
+  },
+  "src/fonts/manrope-v20-latin-700.woff2": {
+    "file": "assets/manrope-v20-latin-700-BZp_XxE4.woff2",
+    "src": "src/fonts/manrope-v20-latin-700.woff2"
+  },
+  "src/fonts/manrope-v20-latin-regular.woff2": {
+    "file": "assets/manrope-v20-latin-regular-PaqtzbVb.woff2",
+    "src": "src/fonts/manrope-v20-latin-regular.woff2"
+  },
   "src/js/theme.js": {
-    "file": "assets/theme-22pn6zDN.js",
+    "file": "assets/theme--JyG5IAn.js",
     "name": "theme",
     "src": "src/js/theme.js",
     "isEntry": true

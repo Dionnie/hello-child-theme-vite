@@ -6,6 +6,8 @@
 @import "./single-product.css";
 @import "./cart.css";
 @import "./checkout.css";
+@import "./add-to-cart.css";
+@import "./table.css";
 
 body.archive .content-area,
 body.woocommerce-shop .content-area,
@@ -19,6 +21,22 @@ body.single-product .content-area {
       padding-inline-end: max(1rem, calc((100% - 1140px) / 2));
     }
   }
+}
+
+.woocommerce div.product form.cart div.quantity {
+  margin: 0 1rem 0 0;
+}
+
+.select2-container--default
+  .select2-results__option--highlighted[aria-selected],
+.select2-container--default
+  .select2-results__option--highlighted[data-selected] {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.select2-container--default .select2-results > .select2-results__options {
+  background-color: #fafbf9;
 }
 
 .woocommerce .star-rating {

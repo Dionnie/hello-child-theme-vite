@@ -1,0 +1,38 @@
+.woocommerce .quantity {
+  & {
+    display: flex !important;
+    flex-wrap: nowrap;
+  }
+
+  .qty-set {
+    min-width: 40px;
+  }
+
+  .qty-minus {
+    border-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .qty-plus {
+    border-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  input[type="number"] {
+    appearance: textfield;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+  .qty {
+    width: 60px;
+    outline: 0;
+    border-inline: 0 !important;
+    border-radius: 0 !important;
+  }
+}

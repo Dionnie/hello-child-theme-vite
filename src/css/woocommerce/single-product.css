@@ -6,11 +6,6 @@
   margin-top: 0.5rem;
 }
 
-.woocommerce .quantity .qty {
-  padding: 5px 4px;
-  min-width: 70px;
-}
-
 .woocommerce div.product form.cart .button {
   transition: background-color 0.3s ease;
   background-color: var(--primary);
@@ -34,10 +29,4 @@
   color: var(--primary);
   font-weight: 600;
   font-size: 1rem !important;
-}
-
-.woocommerce .quantity .qty {
-  padding: 0.5rem 0.75rem;
-  padding-right: 2px;
-  min-width: 70px;
 }

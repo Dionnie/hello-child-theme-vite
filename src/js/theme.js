@@ -33,69 +33,33 @@ document.addEventListener("DOMContentLoaded", rearrangeCheckout);
 // Re-run after checkout refresh (WooCommerce AJAX)
 jQuery(document.body).on("updated_checkout", rearrangeCheckout);
 
-document.addEventListener("DOMContentLoaded", () => {
-  // Add +/- buttons to quantity inputs
-  document.querySelectorAll(".quantity input.qty").forEach((input) => {
-    if (input.dataset.qtyButtons) return;
+jQuery(function ($) {
+  $(document).on("click", ".qty-plus, .qty-minus", function () {
+    var $qty = $(this).closest(".quantity").find(".qty");
 
-    input.dataset.qtyButtons = "true";
-
-    const minusBtn = document.createElement("button");
-    minusBtn.type = "button";
-    minusBtn.className = "qty-minus";
-    minusBtn.textContent = "-";
-
-    const plusBtn = document.createElement("button");
-    plusBtn.type = "button";
-    plusBtn.className = "qty-plus";
-    plusBtn.textContent = "+";
-
-    input.parentNode.insertBefore(minusBtn, input);
-    input.parentNode.insertBefore(plusBtn, input.nextSibling);
-  });
-
-  // Handle button clicks
-  document.addEventListener("click", (e) => {
-    const button = e.target;
-
-    if (
-      !button.classList.contains("qty-plus") &&
-      !button.classList.contains("qty-minus")
-    ) {
+    if (!$qty.length) {
       return;
     }
 
-    const quantity = button.closest(".quantity");
-    const input = quantity?.querySelector("input.qty");
+    var currentVal = parseFloat($qty.val()) || 0;
+    var max = parseFloat($qty.attr("max"));
+    var min = parseFloat($qty.attr("min"));
+    var step = parseFloat($qty.attr("step")) || 1;
 
-    if (!input) return;
-
-    const current = parseFloat(input.value) || 0;
-    const step = parseFloat(input.getAttribute("step")) || 1;
-    const min = parseFloat(input.getAttribute("min"));
-    const max = parseFloat(input.getAttribute("max"));
-
-    let value = current;
-
-    if (button.classList.contains("qty-plus")) {
-      value += step;
-      if (!isNaN(max)) {
-        value = Math.min(value, max);
+    if ($(this).hasClass("qty-plus")) {
+      if (!isNaN(max) && currentVal >= max) {
+        $qty.val(max);
+      } else {
+        $qty.val(currentVal + step);
       }
     } else {
-      value -= step;
-      if (!isNaN(min)) {
-        value = Math.max(value, min);
+      if (!isNaN(min) && currentVal <= min) {
+        $qty.val(min);
+      } else {
+        $qty.val(Math.max(currentVal - step, min || 0));
       }
     }
 
-    input.value = value;
-
-    // Trigger change event
-    input.dispatchEvent(
-      new Event("change", {
-        bubbles: true,
-      }),
-    );
+    $qty.trigger("change");
   });
 });

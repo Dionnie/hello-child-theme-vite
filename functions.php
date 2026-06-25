@@ -355,3 +355,15 @@ function my_custom_meta_description() {
 	);
 }
 add_action( 'wp_head', 'my_custom_meta_description', 5 );
+
+
+
+// Output minus button before quantity input
+add_action('woocommerce_before_quantity_input_field', function () {
+    echo '<button type="button" class="qty-set qty-minus">-</button>';
+});
+
+// Output plus button after quantity input
+add_action('woocommerce_after_quantity_input_field', function () {
+    echo '<button type="button" class="qty-set qty-plus">+</button>';
+});
