@@ -56,3 +56,43 @@ body.single-product .content-area {
     margin-block: 0.6em;
   }
 }
+
+// https://oodlepaws.test/checkout/order-received/1049/?key=wc_order_RerMw78oOZFJh
+.woocommerce .woocommerce-customer-details address {
+  padding: 1rem;
+  border: 1px solid var(--color-gray-200);
+  border-radius: 0.5em;
+}
+
+.woocommerce ul.order_details {
+  & {
+    width: fit-content;
+  }
+
+  &::after,
+  &::before {
+    position: absolute;
+  }
+
+  margin: 0 0 3em;
+  list-style: none;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr;
+  flex-direction: column;
+  gap: 1rem 2rem;
+  padding: 0;
+}
+
+.woocommerce ul.order_details li {
+  float: none;
+  width: auto;
+  margin-right: 0;
+  text-transform: uppercase;
+  font-size: 0.715em;
+  line-height: 1;
+  border-right: 0;
+  padding-right: 0;
+  margin-left: 0;
+  padding-left: 0;
+  list-style-type: none;
+}
