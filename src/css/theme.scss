@@ -1,0 +1,10 @@
+@use "./reset.scss";
+@use "./typography.scss";
+@use "./colors.scss";
+@use "./forms.scss";
+@use "./woocommerce/woocommerce.scss";
+
+svg {
+  fill: none;
+  stroke: white;
+}

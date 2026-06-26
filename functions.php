@@ -43,27 +43,21 @@ function dionnie_enqueue_from_manifest( $entries ) {
     $hot_file = get_stylesheet_directory() . '/public/hot';
     $is_dev   = file_exists( $hot_file );
 
-
-   //wp_enqueue_style(  'dionnie-reset', get_stylesheet_directory_uri() . '/src/css/reset.css' );
-   // wp_enqueue_style(  'dionnie-theme', get_stylesheet_directory_uri() . '/src/css/theme.css' );
-
     // --- DEVELOPMENT MODE (VITE HMR) ---
     if ( $is_dev ) {
         $dev_server = 'http://localhost:5173/';
         
         // Ensure Vite client is loaded first for HMR
         wp_enqueue_script_module( 'vite-client', $dev_server . '@vite/client' );
-		wp_enqueue_script_module( 'vite-reload', $dev_server . 'src/reload.js' );
-
-		
+        wp_enqueue_script_module( 'vite-reload', $dev_server . 'src/reload.js' );
 
         foreach ( $entries as $entry_key ) {
             $file_url = $dev_server . $entry_key;
             $handle   = 'dionnie-' . sanitize_title( $entry_key );
 
-            // Handle CSS entry points in dev
-            if ( preg_match( '/\.css$/', $entry_key ) ) {
-                // Vite allows loading CSS via script module tag during development
+            // FIX 1: Allow .css, .scss, and .sass in dev mode
+            if ( preg_match( '/\.(css|scss|sass)$/', $entry_key ) ) {
+                // Vite allows loading CSS/SCSS via script module tag during development
                 wp_enqueue_script_module( $handle, $file_url );
             }
             // Handle JS/JSX/TS/TSX entry points in dev
@@ -101,8 +95,9 @@ function dionnie_enqueue_from_manifest( $entries ) {
         $file_url = $base_url . $asset['file'];
         $handle   = 'dionnie-' . sanitize_title( $entry_key );
 
-        // Handle CSS entry points
-        if ( preg_match( '/\.css$/', $entry_key ) ) {
+        // FIX 2: Allow .css, .scss, and .sass entry keys in production mode
+        if ( preg_match( '/\.(css|scss|sass)$/', $entry_key ) ) {
+            // Even if the key is .scss, Vite's manifest ['file'] will point to the compiled .css file
             wp_enqueue_style( $handle, $file_url, array(), null );
         }
         // Handle JS entry points
@@ -128,7 +123,7 @@ function dionnie_enqueue_from_manifest( $entries ) {
 function dionnie_enqueue_frontend_assets() {
     dionnie_enqueue_from_manifest( array( 
         'src/js/theme.js', 
-        'src/css/theme.css',
+        'src/css/theme.scss',
     
     ) );
 }

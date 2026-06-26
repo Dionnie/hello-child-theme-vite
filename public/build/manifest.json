@@ -1,7 +1,7 @@
 {
-  "src/css/theme.css": {
-    "file": "assets/theme-B6jRAlDh.css",
-    "src": "src/css/theme.css",
+  "src/css/theme.scss": {
+    "file": "assets/theme-C5FrZ4cl.css",
+    "src": "src/css/theme.scss",
     "isEntry": true,
     "name": "theme",
     "names": [

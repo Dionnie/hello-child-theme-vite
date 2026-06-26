@@ -14,9 +14,10 @@ export default defineConfig({
       host: "localhost",
     },
   },
+
   plugins: [
     laravel({
-      input: ["src/js/theme.js", "src/css/theme.css"],
+      input: ["src/js/theme.js", "src/css/theme.scss"],
       refresh: [".//*.php"],
     }),
     react(),

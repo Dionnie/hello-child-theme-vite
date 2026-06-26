@@ -1,0 +1,59 @@
+@use "sass:math";
+
+// --- GLOBAL UTOPIA CONFIGURATION ---
+$utopia-min-viewport: 360 !default;
+$utopia-max-viewport: 1280 !default;
+$utopia-min-base: 16 !default;
+$utopia-max-base: 18 !default;
+$utopia-min-scale: 1.2 !default;
+$utopia-max-scale: 1.333 !default;
+
+/// Helper function to round values to 4 decimal places for clean CSS
+@function round-to($number, $decimals: 4) {
+  $power: math.pow(10, $decimals);
+  @return math.div(math.round($number * $power), $power);
+}
+
+/// Core formula to calculate the fluid clamp() string
+@function fluid-clamp(
+  $min-size,
+  $max-size,
+  $min-viewport: 360,
+  $max-viewport: 1240
+) {
+  $slope: math.div($max-size - $min-size, $max-viewport - $min-viewport);
+  $y-intercept: $min-size - ($min-viewport * $slope);
+
+  // Convert px to rem (assuming a 16px base root)
+  $min-rem: round-to(math.div($min-size, 16));
+  $max-rem: round-to(math.div($max-size, 16));
+  $y-intercept-rem: round-to(math.div($y-intercept, 16));
+  $slope-vw: round-to($slope * 100);
+
+  // Ensure clamp values are in the correct min/max order
+  $min-value: math.min($min-rem, $max-rem);
+  $max-value: math.max($min-rem, $max-rem);
+
+  @return clamp(
+    #{$min-value}rem,
+    #{$y-intercept-rem}rem + #{$slope-vw}vw,
+    #{$max-value}rem
+  );
+}
+
+/// Utopia Type Scale Generator
+/// Defaults are set to match your exact configuration
+@function utopia-step(
+  $step,
+  $min-base: $utopia-min-base,
+  $max-base: $utopia-max-base,
+  $min-scale: $utopia-min-scale,
+  $max-scale: $utopia-max-scale,
+  $min-viewport: $utopia-min-viewport,
+  $max-viewport: $utopia-max-viewport
+) {
+  $min-size: $min-base * math.pow($min-scale, $step);
+  $max-size: $max-base * math.pow($max-scale, $step);
+
+  @return fluid-clamp($min-size, $max-size, $min-viewport, $max-viewport);
+}

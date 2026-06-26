@@ -8,11 +8,12 @@
 
 .woocommerce div.product form.cart .button {
   transition: background-color 0.3s ease;
-  background-color: var(--primary);
+  background-color: #d26137;
+  border: none;
   color: #fff;
 
   &:hover {
-    background-color: #35482b;
+    background-color: #8c4024;
   }
 }
 
@@ -20,13 +21,13 @@
 .woocommerce:where(body:not(.woocommerce-uses-block-theme))
   div.product
   span.price {
-  color: var(--primary);
+  color: var(--color-brand-500);
   font-weight: 600;
   font-size: var(--head-5);
 }
 
 .woocommerce:where(body:not(.woocommerce-uses-block-theme)) div.product .stock {
-  color: var(--primary);
+  color: var(--color-brand-500);
   font-weight: 600;
   font-size: 1rem !important;
 }

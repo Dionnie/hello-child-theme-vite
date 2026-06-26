@@ -1,9 +1,0 @@
-@import "./reset.css";
-@import "./typography.css";
-@import "./forms.css";
-@import "./woocommerce/woocommerce.css";
-
-svg {
-  fill: none;
-  stroke: white;
-}

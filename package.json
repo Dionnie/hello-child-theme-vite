@@ -16,5 +16,8 @@
     "laravel-vite-plugin": "^2.0.1",
     "vite": "^7.3.0",
     "vite-plugin-browser-sync": "^6.0.0"
+  },
+  "devDependencies": {
+    "sass": "^1.101.0"
   }
 }

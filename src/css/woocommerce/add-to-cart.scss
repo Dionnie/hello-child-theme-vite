@@ -1,0 +1,28 @@
+.woocommerce .quantity {
+  & {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 2px;
+  }
+
+  .qty-set {
+    min-width: 40px;
+  }
+
+  input[type="number"] {
+    appearance: textfield;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+  .qty {
+    width: 60px;
+  }
+}
+
+.woocommerce div.product form.cart div.quantity {
+  margin: 0 12px 0 0;
+}

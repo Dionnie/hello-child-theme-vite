@@ -32,6 +32,13 @@
   }
 }
 
+#add_payment_method table.cart td.actions .coupon .input-text,
+.woocommerce-cart table.cart td.actions .coupon .input-text,
+.woocommerce-checkout table.cart td.actions .coupon .input-text {
+  margin: 0 8px 0 0;
+  padding: 0.4em 0.6em;
+}
+
 #add_payment_method #payment,
 .woocommerce-cart #payment,
 .woocommerce-checkout #payment {
@@ -57,10 +64,11 @@
 .woocommerce #payment #place_order,
 .woocommerce-page #payment #place_order {
   transition: background-color 0.3s ease;
-  background-color: var(--primary);
+  background-color: #d26137;
+  border: none;
   color: #fff;
 
   &:hover {
-    background-color: #35482b;
+    background-color: #8c4024;
   }
 }

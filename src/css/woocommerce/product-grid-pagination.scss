@@ -1,0 +1,32 @@
+.woocommerce nav.woocommerce-pagination {
+  margin-top: 60px;
+}
+
+.woocommerce nav.woocommerce-pagination ul {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  border: none;
+}
+
+.woocommerce nav.woocommerce-pagination ul li {
+  border: 1px solid #cfc8d8;
+  min-width: 40px;
+  display: inline;
+  border-radius: 4px;
+}
+
+.woocommerce nav.woocommerce-pagination ul li a,
+.woocommerce nav.woocommerce-pagination ul li span {
+  color: #7b7484;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.woocommerce nav.woocommerce-pagination ul li a:focus,
+.woocommerce nav.woocommerce-pagination ul li a:hover,
+.woocommerce nav.woocommerce-pagination ul li span.current {
+  background: var(--color-brand-500);
+  color: #fff;
+}

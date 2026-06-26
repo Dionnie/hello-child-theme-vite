@@ -1,0 +1,41 @@
+.woocommerce-error {
+  border-top-color: var(--color-error-500);
+  background-color: var(--color-error-50);
+}
+
+.woocommerce-error::before {
+  color: var(--color-error-500);
+}
+
+.woocommerce-message {
+  border-top-color: var(--color-info-500);
+  background-color: var(--color-info-50);
+}
+
+.woocommerce-message::before {
+  color: var(--color-info-500);
+}
+
+.woocommerce-success {
+  border-top-color: var(--color-success-500);
+  background-color: var(--color-success-50);
+}
+
+.woocommerce-success::before {
+  color: var(--color-success-500);
+}
+
+.woocommerce-error,
+.woocommerce-message,
+.woocommerce-success {
+  & {
+    border-radius: 4px;
+    transition: outline 0.3s ease;
+  }
+
+  &:focus-visible {
+    outline: var(--color-brand-600) solid 2px;
+    outline-offset: 4px;
+    z-index: 1;
+  }
+}
