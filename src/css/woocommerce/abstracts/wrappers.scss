@@ -1,0 +1,5 @@
+@mixin wc-cart-table {
+  body.woocommerce-cart #content .woocommerce-cart-form table.cart {
+    @content;
+  }
+}
