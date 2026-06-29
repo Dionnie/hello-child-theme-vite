@@ -1,6 +1,7 @@
 @use "./reset.scss";
 @use "./globals.scss";
 @use "./buttons.scss";
+//@use "./layout.scss";
 @use "./table.scss";
 @use "./notices.scss";
 @use "./product-grid.scss";
@@ -10,6 +11,8 @@
 @use "./cart.scss";
 @use "./checkout.scss";
 @use "./add-to-cart.scss";
+@use "./coupon.scss";
+@use "./my-account.scss";
 
 body.archive .content-area,
 body.woocommerce-shop .content-area,
@@ -95,4 +98,12 @@ body.single-product .content-area {
   margin-left: 0;
   padding-left: 0;
   list-style-type: none;
+}
+
+.woocommerce form .form-row-first,
+.woocommerce form .form-row-last,
+.woocommerce-page form .form-row-first,
+.woocommerce-page form .form-row-last {
+  width: calc(50% - 0.5em);
+  overflow: visible;
 }

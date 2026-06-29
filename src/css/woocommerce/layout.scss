@@ -1,0 +1,45 @@
+/*.woocommerce
+  form
+  .form-row:has(button[type="submit"]):not(.form-row-first):not(
+    .form-row-last
+  ) {
+  margin-top: 1em !important;
+}*/
+
+.woocommerce form:has(> .form-row),
+.woocommerce div:has(> .form-row) {
+  & {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    align-items: center;
+  }
+
+  .clear {
+    position: absolute;
+    flex-basis: 100%;
+  }
+
+  .form-row::after,
+  .form-row::before {
+    flex-basis: 100%;
+  }
+
+  .form-row {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    float: none;
+    align-items: center;
+  }
+
+  :not(.form-row-first):not(.form-row-last) {
+    flex-basis: 100%;
+  }
+
+  @media only screen and (max-width: 767px) {
+    .form-row {
+      flex-basis: 100%;
+    }
+  }
+}

@@ -1,44 +1,3 @@
-.woocommerce-form-coupon-toggle .woocommerce-info {
-  margin-bottom: 1rem;
-}
-
-.woocommerce .checkout_coupon.woocommerce-form-coupon {
-  & {
-    margin-top: 1rem;
-  }
-
-  .form-row {
-    margin: 0;
-    padding: 0;
-  }
-
-  .form-row-last {
-    float: left;
-    margin-left: 0.8rem;
-  }
-
-  @media (max-width: 767px) {
-    .form-row-first {
-      float: none;
-      width: 100%;
-    }
-
-    .form-row-last {
-      float: none;
-      margin-top: 0.5rem;
-      margin-left: 0;
-      width: 100%;
-    }
-  }
-}
-
-#add_payment_method table.cart td.actions .coupon .input-text,
-.woocommerce-cart table.cart td.actions .coupon .input-text,
-.woocommerce-checkout table.cart td.actions .coupon .input-text {
-  margin: 0 8px 0 0;
-  padding: 0.4em 0.6em;
-}
-
 #add_payment_method #payment,
 .woocommerce-cart #payment,
 .woocommerce-checkout #payment {
@@ -64,7 +23,7 @@
 .woocommerce #payment #place_order,
 .woocommerce-page #payment #place_order {
   transition: background-color 0.3s ease;
-  background-color: #d26137;
+  background-color: #a64826;
   border: none;
   color: #fff;
 
