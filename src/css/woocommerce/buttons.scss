@@ -30,8 +30,6 @@
   input.button {
   border-radius: 8px;
   font-weight: 600;
-  //background-color: transparent;
-  // color: var(--color-brand-500);
   background-color: var(--color-brand-500);
   color: #fff;
   font-weight: 400;
@@ -72,7 +70,7 @@
   )
   .woocommerce
   input.button:hover {
-  background-color: var(--color-brand-500);
+  background-color: var(--color-brand-600);
   color: #fff;
 }
 
@@ -166,7 +164,6 @@
   )
   .woocommerce
   input.button:disabled[disabled] {
-  // color: var(--color-brand-500);
   color: #fff;
 }
 

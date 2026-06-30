@@ -1,0 +1,51 @@
+@mixin button($bg-color, $text-color: #fff, $radius: 4px) {
+  // Base structural styles
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid transparent;
+  border-radius: $radius;
+  transition:
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+
+  // Dynamic color assignments
+  background-color: $bg-color;
+  color: $text-color;
+
+  // Interactive states
+  &:hover {
+    background-color: scale-color($bg-color, $lightness: -10%);
+    border-color: scale-color($bg-color, $lightness: -12%);
+    color: $text-color;
+  }
+
+  &:active {
+    background-color: scale-color($bg-color, $lightness: -15%);
+    border-color: scale-color($bg-color, $lightness: -18%);
+  }
+
+  // Accessibility focus ring
+  &:focus-visible {
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem scale-color($bg-color, $alpha: -50%);
+  }
+
+  // Disabled styling
+  &:disabled,
+  &.is-disabled {
+    pointer-events: none;
+    opacity: 0.65;
+    box-shadow: none;
+  }
+}

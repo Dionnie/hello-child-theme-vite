@@ -1,23 +1,21 @@
-:root {
-  /* ==========================================================================
+/* ==========================================================================
      COLOR DESIGN PRINCIPLE
-     ========================================================================== 
+   ========================================================================== 
 1. Primary Color
 1.1. Primary color at full saturation with a tonal scale from 50-900.
-
 2. Secondary Color
 2.1. The brand's officially designated secondary color.
 2.2. Natural Pairing (e.g., green leaves paired with brown bark).
 2.3. Color Wheel Harmony (e.g., analogous or split-complementary).
 2.4. High contrast to the primary brand color, ensuring it can be used for urgent action buttons (e.g., "Add to Cart") without camouflaging.
-
 3. Neutral Color Palette with an undertone of the primary color
-
 */
 
-  /* ==========================================================================
+/* ==========================================================================
      1. PRIMARY BRAND COLORS
-     ========================================================================== */
+   ========================================================================== */
+
+:root {
   --color-brand-50: #f4f7f2;
   --color-brand-100: #e6edd9;
   --color-brand-200: #cee0b6;

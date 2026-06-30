@@ -1,0 +1,22 @@
+.woocommerce form.checkout_coupon .form-row {
+  & {
+    padding: 0;
+    margin: 0;
+    width: calc(50% - 0.3em);
+  }
+
+  @media screen and (max-width: 767px) {
+    &.form-row-first {
+      width: 100%;
+    }
+
+    &.form-row-last {
+      margin-top: 0.5em;
+      width: 100%;
+    }
+
+    button[name="apply_coupon"] {
+      width: 100%;
+    }
+  }
+}

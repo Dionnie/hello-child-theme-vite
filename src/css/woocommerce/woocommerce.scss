@@ -1,4 +1,3 @@
-@use "./reset.scss";
 @use "./globals.scss";
 @use "./buttons.scss";
 @use "./layout.scss";
@@ -10,8 +9,10 @@
 @use "./single-product.scss";
 @use "./cart.scss";
 @use "./checkout.scss";
-@use "./add-to-cart.scss";
+@use "./coupon-cart.scss";
+@use "./coupon-checkout.scss";
 @use "./coupon.scss";
+@use "./add-to-cart.scss";
 @use "./my-account.scss";
 
 body.archive .content-area,

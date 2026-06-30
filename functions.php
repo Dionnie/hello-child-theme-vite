@@ -22,6 +22,39 @@ define('COMPRESS_SCRIPTS',    true);
 define('CONCATENATE_SCRIPTS', true);
 define('ENFORCE_GZIP',        true);
 
+
+add_filter('should_load_separate_core_block_assets', '__return_true');
+
+add_action('after_setup_theme', 'custom_classic_theme_setup');
+function custom_classic_theme_setup()
+{
+    // Declares that your theme manually handles its button/block styling properties
+    add_theme_support('woocommerce-block-theme-has-button-styles');
+
+    // Ensures clean HTML5 markup output instead of legacy wrappers
+    add_theme_support('html5', array('comment-list', 'comment-form', 'search-form', 'gallery', 'caption', 'style', 'script'));
+}
+
+
+/**
+ * Remove from the queue of CSS files to be inserted, those declared by WC for blocks (Gutenberg).
+ * There are about 37 of them.
+ *
+ * @author Gilles Dumas
+ * @since 20230904
+ * @return void
+ */
+function lc_disable_wc_blocks_scripts()
+{
+    global $wp_styles;
+    foreach ($wp_styles->queue as $v) {
+        if (strpos($v, "wc - blocks") !== false) {
+            wp_dequeue_style($v);
+        }
+    }
+}
+add_action("wp_enqueue_scripts", "lc_disable_wc_blocks_scripts", 99);
+
 /**
  * Load child theme scripts & styles.
  *

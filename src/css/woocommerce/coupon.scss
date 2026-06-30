@@ -1,44 +1,5 @@
-@use "./abstracts/wrappers" as *;
-@use "./abstracts/breakpoints" as screen;
-
-@include wc-cart-table {
-  .coupon {
-    background: red;
-  }
-
-  input {
-    width: auto;
-    margin: 0;
-  }
-}
-
-@include screen.mobile {
-  @include wc-cart-table {
-    input {
-      margin-right: 0;
-      margin-bottom: 8px;
-      width: calc(100%);
-    }
-  }
-}
-
-.woocommerce form.checkout_coupon .form-row {
-  & {
-    margin: 0;
-    width: calc(50% - 0.2em);
-  }
-
-  @include screen.mobile {
-    &.form-row-first {
-      width: 100%;
-    }
-
-    &.form-row-last {
-      width: 100%;
-    }
-
-    button[name="apply_coupon"] {
-      width: 100%;
-    }
-  }
+#add_payment_method table.cart td.actions .coupon .input-text,
+.woocommerce-cart table.cart td.actions .coupon .input-text,
+.woocommerce-checkout table.cart td.actions .coupon .input-text {
+  padding: 0.4em 0.6em;
 }
