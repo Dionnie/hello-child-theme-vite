@@ -2,6 +2,7 @@
   & {
     border: 1px solid var(--color-gray-200);
     border-radius: 8px;
+    overflow: hidden;
   }
 
   thead {
@@ -14,4 +15,9 @@
 
 .woocommerce table.shop_table td {
   border-top: 1px solid var(--color-gray-200);
+}
+
+.woocommerce table.my_account_orders td,
+.woocommerce table.my_account_orders th {
+  padding: 8px 8px;
 }
